@@ -1,12 +1,19 @@
 const express = require('express');
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 const { notes } = require('./Develop/notes');
 
-app.get('/index.html', (req, res) => {
-    res.json(notes);
+app.get('/notes', (req, res) => {
+    res.json(db.notes);
   });
 
-app.listen(3001, () => {
+  app.get('/notes', (req, res) => {
+    let results = animals;
+    console.log(req.query)
+    res.json(results);
+  });
+
+app.listen(PORT, () => {
     console.log(`API server now on port 3001!`);
   });
